@@ -14,5 +14,9 @@
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
     "tailwindcss": "^4.1.17"
+  },
+  "devDependencies": {
+    "react-router": "^6.30.1",
+    "react-router-dom": "^6.30.1"
   }
 }
