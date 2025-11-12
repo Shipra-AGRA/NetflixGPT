@@ -10,11 +10,13 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@reduxjs/toolkit": "^2.10.1",
     "@tailwindcss/postcss": "^4.1.17",
     "firebase": "^12.5.0",
     "parcel": "^2.16.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
+    "react-redux": "^9.2.0",
     "tailwindcss": "^4.1.17"
   },
   "devDependencies": {

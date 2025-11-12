@@ -15,14 +15,18 @@ features:
     -searchbar
     -movies suggestions
 
+steps:
 -header
 -routing of app
 -login & signup form
 -form validation
 -firebase config and app deploy
+-create signup user account
+-implemented signin/signup user api
+-created redux store
 
 
-
+setup firebase:
 -firebase configuration
     -firstly go to firebase on google and created a project do some steps too and choose a firebase account too when asks and select all options.
     -go to that project and there is an option (add app) choose web from that option then registers the project with any name and also selects setup firebase and then give some command to install firebase and then created a firebase.js file in utils folder and add code whatever was given on firebase while registering app
