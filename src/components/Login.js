@@ -5,6 +5,7 @@ import checkValidData from "../utils/validate"
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
+import { useNavigate } from "react-router";
 
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true)
@@ -12,7 +13,7 @@ const Login = () => {
     const emailRef = useRef(null)
     const passwordRef = useRef(null)
     const nameRef = useRef(null)
-
+    const navigate=useNavigate()
 
     function toggleSignInForm() {
         setIsSignInForm(!isSignInForm)
@@ -20,7 +21,7 @@ const Login = () => {
     function handleClick() {
         const message = checkValidData(emailRef.current.value, passwordRef.current.value,
             isSignInForm ? "" : nameRef.current?.value, isSignInForm ? false : true)
-        console.log(setErrorMessage(message))
+        setErrorMessage(message)
         if (message) return;
         if (!isSignInForm) {
             createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
@@ -32,6 +33,7 @@ const Login = () => {
                     const errorMessage = error.message;
                     setErrorMessage(errorMessage)
                 });
+                navigate("/browse")
         } else {
             signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
                 .then((userCredential) => {
@@ -42,6 +44,7 @@ const Login = () => {
                     const errorMessage = error.message;
                     setErrorMessage(errorMessage)
                 });
+                navigate("/browse")
         }
     }
     return (
