@@ -14,3 +14,8 @@ features:
 -NetflixGPT
     -searchbar
     -movies suggestions
+
+-header
+-routing of app
+-login & signup form
+-form validation
