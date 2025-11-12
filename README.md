@@ -19,3 +19,21 @@ features:
 -routing of app
 -login & signup form
 -form validation
+-firebase config and app deploy
+
+
+
+-firebase configuration
+    -firstly go to firebase on google and created a project do some steps too and choose a firebase account too when asks and select all options.
+    -go to that project and there is an option (add app) choose web from that option then registers the project with any name and also selects setup firebase and then give some command to install firebase and then created a firebase.js file in utils folder and add code whatever was given on firebase while registering app
+    -selects authentication from left side bar. click get started and select Email/Password.
+-for app deployment
+    -firebase login in vs code terminal
+    -firebase init
+    -select option hosting website for static webpage
+    -choose existing project
+    -selects one app
+    -write build or dist (this options ask about build folder of the app)
+    -write no, again no
+    -firebase deploy
+    -can now check on the url given in the terminal

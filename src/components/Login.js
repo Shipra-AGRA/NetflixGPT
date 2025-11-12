@@ -14,7 +14,7 @@ const Login = () => {
         setIsSignInForm(!isSignInForm)
     }
     function handleClick() {
-        const msg = checkValidData(emailRef.current.value, passwordRef.current.value)
+        const msg = checkValidData(emailRef.current.value, passwordRef.current.value,nameRef.current.value)
         console.log(setErrorMessage(msg))
     }
     return (

@@ -2,7 +2,8 @@
   "name": "nextflixgpt",
   "version": "1.0.0",
   "scripts": {
-    "start": "parcel ./src/index.html"
+    "start": "parcel ./src/index.html",
+    "build": "parcel build ./src/index.html --dist-dir build"
   },
   "keywords": [],
   "author": "",
@@ -10,6 +11,7 @@
   "description": "",
   "dependencies": {
     "@tailwindcss/postcss": "^4.1.17",
+    "firebase": "^12.5.0",
     "parcel": "^2.16.1",
     "react": "^19.2.0",
     "react-dom": "^19.2.0",
