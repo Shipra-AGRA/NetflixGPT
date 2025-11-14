@@ -5,7 +5,6 @@ import checkValidData from "../utils/validate"
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
-import { useNavigate } from "react-router";
 import { updateProfile } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
@@ -16,7 +15,6 @@ const Login = () => {
     const emailRef = useRef(null)
     const passwordRef = useRef(null)
     const nameRef = useRef(null)
-    const navigate=useNavigate()
     const dispatch=useDispatch()
 
     function toggleSignInForm() {
@@ -37,7 +35,6 @@ const Login = () => {
                          await auth.currentUser.reload();
                         const { displayName, email, uid } = auth.currentUser
                         dispatch(addUser({ displayName:nameRef.current.value, email, uid }))
-                        navigate("/browse")
                     }).catch((error) => {
                         setErrorMessage(error.message)
                     });
