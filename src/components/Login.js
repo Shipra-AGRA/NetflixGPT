@@ -6,6 +6,9 @@ import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../utils/firebase";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useNavigate } from "react-router";
+import { updateProfile } from "firebase/auth";
+import { useDispatch } from "react-redux";
+import { addUser } from "../utils/userSlice";
 
 const Login = () => {
     const [isSignInForm, setIsSignInForm] = useState(true)
@@ -14,6 +17,7 @@ const Login = () => {
     const passwordRef = useRef(null)
     const nameRef = useRef(null)
     const navigate=useNavigate()
+    const dispatch=useDispatch()
 
     function toggleSignInForm() {
         setIsSignInForm(!isSignInForm)
@@ -25,15 +29,18 @@ const Login = () => {
         if (message) return;
         if (!isSignInForm) {
             createUserWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
-                .then((userCredential) => {
+                .then(async(userCredential) => {
                     const user = userCredential.user;
-                })
-                .catch((error) => {
-                    const errorCode = error.code;
-                    const errorMessage = error.message;
-                    setErrorMessage(errorMessage)
-                });
-                navigate("/browse")
+                    await updateProfile(user, {
+                        displayName: nameRef.current.value, photoURL: "https://example.com/jane-q-user/profile.jpg"
+                    })
+                         await auth.currentUser.reload();
+                        const { displayName, email, uid } = auth.currentUser
+                        dispatch(addUser({ displayName:nameRef.current.value, email, uid }))
+                        navigate("/browse")
+                    }).catch((error) => {
+                        setErrorMessage(error.message)
+                    });
         } else {
             signInWithEmailAndPassword(auth, emailRef.current.value, passwordRef.current.value)
                 .then((userCredential) => {

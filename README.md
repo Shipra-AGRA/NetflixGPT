@@ -24,6 +24,9 @@ steps:
 -create signup user account
 -implemented signin/signup user api
 -created redux store
+-implemented sign out
+-updated profile
+-resolve bug: can able to access browse page with auth and if i already signed in it should take me to the /browse page without login
 
 
 setup firebase:
