@@ -30,6 +30,9 @@ steps:
 -unsubscribe onStateChangeAuth
 -go to tmdb website, login, go to edit profile, go to api from the left panel, register app if not or able to access key and token
 -go to docs use tmdb now playing api
+-created slice to store movies
+-created browse page main container section
+-
 
 
 setup firebase:
