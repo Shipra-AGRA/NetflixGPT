@@ -48,7 +48,6 @@ const Login = () => {
                     const errorMessage = error.message;
                     setErrorMessage(errorMessage)
                 });
-                navigate("/browse")
         }
     }
     return (
