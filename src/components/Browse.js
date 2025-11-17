@@ -1,8 +1,12 @@
+import React from "react";
+import { useEffect } from "react"
 import Header from "./Header"
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 
 const Browse = () => {
+    useNowPlayingMovies()
     return (
-        <Header/>
+        <Header />
     )
 }
 export default Browse

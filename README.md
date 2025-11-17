@@ -27,6 +27,9 @@ steps:
 -implemented sign out
 -updated profile
 -resolve bug: can able to access browse page with auth and if i already signed in it should take me to the /browse page without login
+-unsubscribe onStateChangeAuth
+-go to tmdb website, login, go to edit profile, go to api from the left panel, register app if not or able to access key and token
+-go to docs use tmdb now playing api
 
 
 setup firebase:
@@ -44,3 +47,5 @@ setup firebase:
     -write no, again no
     -firebase deploy
     -can now check on the url given in the terminal
+
+-api calls make api if we use react.strictmode this is bcz react check if their is some inconsistency in our rendering cycle.
