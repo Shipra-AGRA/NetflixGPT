@@ -7,19 +7,19 @@ import React from "react";
 import { useEffect } from "react";
 
 const Header = () => {
-    const navigate=useNavigate()
-    const dispatch=useDispatch()
+    const navigate = useNavigate()
+    const dispatch = useDispatch()
 
     function handleClick() {
         signOut(auth).then(() => {
         }).catch((error) => {
         });
     }
-     useEffect(() => {
-        const unsubscribe=onAuthStateChanged(auth, (user) => {
+    useEffect(() => {
+        const unsubscribe = onAuthStateChanged(auth, (user) => {
             if (user) {
-                const {displayName,email,uid}=user
-                dispatch(addUser({displayName,email,uid}))
+                const { displayName, email, uid } = user
+                dispatch(addUser({ displayName, email, uid }))
                 navigate("/browse")
             } else {
                 dispatch(removeUser())
@@ -28,7 +28,7 @@ const Header = () => {
         });
 
         //called just before when the component unmounts
-        ()=>unsubscribe()
+        () => unsubscribe()
     }, [])
     return (
         <div className="absolute px-8 py-2 bg-gradient-to-b from-black z-10 w-screen flex justify-between">
@@ -37,7 +37,7 @@ const Header = () => {
             <div className="p-2">
                 <img src="https://occ-0-6246-2186.1.nflxso.net/dnm/api/v6/vN7bi_My87NPKvsBoib006Llxzg/AAAABTZ2zlLdBVC05fsd2YQAR43J6vB1NAUBOOrxt7oaFATxMhtdzlNZ846H3D8TZzooe2-FT853YVYs8p001KVFYopWi4D4NXM.png?r=229"
                     alt="user icon" className="right-3.5 relative" />
-                <button onClick={handleClick } className="text-white cursor-pointer font-bold absolute right-10">(Sign out)</button>
+                <button onClick={handleClick} className="text-white cursor-pointer font-bold absolute right-10">(Sign out)</button>
             </div>
         </div>
     )
