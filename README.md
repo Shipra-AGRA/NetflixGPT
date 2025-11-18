@@ -33,6 +33,7 @@ steps:
 -created slice to store movies
 -created browse page main container section
 -created browse page secondary section containing movies list*N
+-gpt search feature
 
 
 setup firebase:
