@@ -1,0 +1,15 @@
+const lang={
+    en:{
+        search:"search",
+        gptSearchPlaceholder:"what you would like to watch today?"
+    },
+    hi:{
+        search:"खोज",
+        gptSearchPlaceholder:"आज आप क्या देखना चाहेंगे?"
+    },
+    es:{
+        search:"buscar",
+        gptSearchPlaceholder:"¿Qué te gustaría ver hoy?"
+    }
+}
+export default lang
