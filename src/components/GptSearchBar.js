@@ -33,11 +33,10 @@ const GptSearchBar = () => {
                 || ["Andaz Apna Apna", "Hera Pheri", "Chupke Chupke", "Dhol", "PK"]
             //in this i will get the movies name 
         } catch (err) {
-            const gptRes = ["Andaz Apna Apna", "Hera Pheri", "Chupke Chupke", "Dhol", "PK"]
+            const gptRes = ["Andaz Apna Apna", "Hera Pheri", "Chupke Chupke", "Dhol", "Delhi Belly"]
             const promiseArray = gptRes.map((movie) => searchSuggestedMovie(movie))
             const tmdbResults = await Promise.all(promiseArray)
-            dispatch(addGptMovieResult(tmdbResults))
-            console.log("tmdbResults@@", tmdbResults)
+            dispatch(addGptMovieResult({ movieNames: gptRes, movieResults: tmdbResults }))
         }
     }
 
@@ -46,7 +45,7 @@ const GptSearchBar = () => {
             <form className="bg-black grid grid-cols-12 w-1/2" onSubmit={(e) => { e.preventDefault() }}>
                 <input type="text" placeholder={lang[langKey].gptSearchPlaceholder}
                     className="bg-white p-4 m-2 col-span-9" ref={searchRef} />
-                <button className="py-2 px-4 bg-red-700 text-white rounded-lg col-span-3 m-2"
+                <button className="py-2 px-4 bg-red-700 text-white rounded-lg col-span-3 m-2 cursor-pointer"
                     onClick={handleGptSearchClick}>{
                         lang[langKey].search
                     }</button>
