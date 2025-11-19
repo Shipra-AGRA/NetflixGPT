@@ -36,6 +36,9 @@ steps:
 -gpt search feature
 -multilingual functionality for gpt page
 -go to https://platform.openai.com/ and get the access key and store them in env and install npm dependency for the same
+-implement openai to get movie suggestions
+-call tmdb movie api to get movie data based on the openai suggestions
+
 
 setup firebase:
 -firebase configuration
