@@ -38,8 +38,8 @@ steps:
 -go to https://platform.openai.com/ and get the access key and store them in env and install npm dependency for the same
 -implement openai to get movie suggestions
 -call tmdb movie api to get movie data based on the openai suggestions
--finieshed gpt search page
-
+-finished gpt search page
+-secure creds in .env file
 
 setup firebase:
 -firebase configuration
@@ -58,3 +58,6 @@ setup firebase:
     -can now check on the url given in the terminal
 
 -api calls make api if we use react.strictmode this is bcz react check if their is some inconsistency in our rendering cycle.
+
+-we should secure secret keys in .env file and to access them in other files we should use them REACT_APP_KEY
+previously that keus will be shown in the build file but if we store them in .env it will not show in build file.
