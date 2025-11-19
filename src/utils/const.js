@@ -7,3 +7,5 @@ export const API_OPTIONS={
 }
 
 export const IMG_CDN="https://image.tmdb.org/t/p/w780"
+
+export const OPENAI_KEY="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"

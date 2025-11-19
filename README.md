@@ -34,7 +34,8 @@ steps:
 -created browse page main container section
 -created browse page secondary section containing movies list*N
 -gpt search feature
-
+-multilingual functionality for gpt page
+-go to https://platform.openai.com/ and get the access key and store them in env and install npm dependency for the same
 
 setup firebase:
 -firebase configuration
