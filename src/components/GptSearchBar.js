@@ -1,13 +1,15 @@
-import { useSelector } from "react-redux"
+import { useDispatch, useSelector } from "react-redux"
 import lang from "../utils/languageConstants"
 import { useRef } from "react"
 import client from "../utils/openai"
 import { API_OPTIONS } from "../utils/const"
+import { addGptMovieResult } from "../utils/gptSlice"
 
 const GptSearchBar = () => {
 
     const langKey = useSelector((store) => store.config.lang)
     const searchRef = useRef(null)
+    const dispatch = useDispatch()
 
     async function searchSuggestedMovie(movieName) {
         const data = await fetch(`https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1`,
@@ -32,9 +34,10 @@ const GptSearchBar = () => {
             //in this i will get the movies name 
         } catch (err) {
             const gptRes = ["Andaz Apna Apna", "Hera Pheri", "Chupke Chupke", "Dhol", "PK"]
-            const promiseArray=gptRes.map((movie) => searchSuggestedMovie(movie))
-            const tmdbResults=await Promise.all(promiseArray)
-            console.log("tmdbResults@@",tmdbResults)
+            const promiseArray = gptRes.map((movie) => searchSuggestedMovie(movie))
+            const tmdbResults = await Promise.all(promiseArray)
+            dispatch(addGptMovieResult(tmdbResults))
+            console.log("tmdbResults@@", tmdbResults)
         }
     }
 
