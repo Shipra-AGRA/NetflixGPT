@@ -40,6 +40,7 @@ steps:
 -call tmdb movie api to get movie data based on the openai suggestions
 -finished gpt search page
 -secure creds in .env file
+-make website responsive
 
 setup firebase:
 -firebase configuration
